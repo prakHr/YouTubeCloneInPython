@@ -102,7 +102,7 @@ def _content(href,n_clicks,children,search_component_children,search_details_com
 
             response = requests.request("GET", url, headers=headers, params=querystring)
             search_dict = json.loads(response.text)
-            pprint(search_dict)
+            # pprint(search_dict)
             pageToken = search_dict["nextPageToken"]
             search_list = search_dict['items']
 

@@ -8,7 +8,7 @@ from config import api_key,api_host
 from furl import furl
 from pprint import pprint
 def youtube_comments_component(comment):
-    rv=dbc.Col(html.Div([
+    rv=dbc.Row(html.Div([
                     
                     html.Div(comment,style = {"margin":"20px 20px 20px 20px"}),
                         
@@ -101,9 +101,9 @@ def video_comments_component(video_id):
     search_dict = json.loads(response.text)
     search_list = search_dict['items']
     toplevel_comments = [item['snippet']['topLevelComment']['snippet']['textOriginal'] for item in search_list]
-    rv = dbc.Row(
+    rv = dbc.Col(
             [youtube_comments_component(comment) for comment in toplevel_comments],
-            className="align-items-md-stretch",
+            # className="align-items-md-stretch",
     )
     # pprint(f"search_component_children={search_component_children}")
     return rv
